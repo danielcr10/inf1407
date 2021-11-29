@@ -88,10 +88,19 @@ def deleteTask(request, id):
     if task.user != request.user:
         return HttpResponseForbidden()
     task.delete()
-
     messages.info(request, 'Tarefa deletada com sucesso.')
-
     return redirect('/')
+
+def changeStatus(request, id):
+    task = get_object_or_404(Tarefa, pk=id)
+    if(task.situacao == 'doing'):
+        task.situacao = 'done'
+    else:
+        task.situacao = 'doing'
+    task.save()
+    messages.info(request, 'Tarefa finalizada com sucesso.')
+    return redirect('/')
+
 
 def helloWorld(request):
     return HttpResponse('Hello world!')

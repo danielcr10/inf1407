@@ -14,6 +14,8 @@ class Tarefa(models.Model):
         ('ti', 'TI'),
         ('marketing', 'Marketing'),
         ('logistica', 'Logistica'),
+        ('rh', 'RH'),
+
     )
     
     titulo = models.CharField(max_length=255)
