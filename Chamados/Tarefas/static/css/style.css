@@ -2,6 +2,10 @@
   padding: 0;
 }
 
+.container-fluid .row {
+  margin: 0;
+}
+
 /* Navbar */
 
 .navbar {
@@ -43,6 +47,10 @@
   margin-right: 25px;
 }
 
+.btn {
+  margin: 20px 0px;
+}
+
 .fas.fa-plus {
   color: #fff;
   margin-right: 10px;
@@ -55,6 +63,7 @@
   position: absolute;
   top: 12px;
   right: 26px;
+  cursor: pointer;
 }
 
 .search-div {
@@ -119,4 +128,29 @@ ul.messages {
 
 ul.messages li {
   list-style: none;
+}
+
+/* Paginação */
+.pagination {
+    margin-bottom: 20px;
+}
+
+.step-links {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.step-links .current {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.auth-card {
+  margin-bottom: 30px;
+}
+
+.change-form-p {
+  margin-top: 30px;
+  text-align: center;
 }
