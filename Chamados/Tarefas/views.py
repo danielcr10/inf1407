@@ -47,6 +47,8 @@ def mytaskList(request):
 @login_required
 def taskView(request, id):
     task = get_object_or_404(Tarefa, pk=id)
+    if task.user != request.user:
+        return HttpResponseForbidden()
     return render(request, 'tasks/task.html', {'task': task})
 
 @login_required
@@ -91,12 +93,13 @@ def deleteTask(request, id):
     messages.info(request, 'Tarefa deletada com sucesso.')
     return redirect('/')
 
+@login_required
 def changeStatus(request, id):
     task = get_object_or_404(Tarefa, pk=id)
+    if task.user != request.user:
+        return HttpResponseForbidden()
     if(task.situacao == 'doing'):
         task.situacao = 'done'
-    else:
-        task.situacao = 'doing'
     task.save()
     messages.info(request, 'Tarefa finalizada com sucesso.')
     return redirect('/')
